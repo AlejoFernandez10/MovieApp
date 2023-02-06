@@ -1,0 +1,38 @@
+.header{
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 10px;
+    .navbar{
+        
+        .container-fluid{
+            
+            .navbar-brand{
+                color: $secondaryColor;
+            }
+            .collapse{
+
+                .navbar-nav{
+
+                    width: 100%;
+                    height: auto;
+                    @include flex(row,center,center);
+
+                    .nav-item{
+
+                        .nav-link{
+
+                            color: #ddd;
+
+                            &:hover{
+                                transform: scale(1.15);
+                                transition: .4s;
+                                color: $secondaryColor;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

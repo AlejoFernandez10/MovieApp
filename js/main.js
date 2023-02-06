@@ -1,18 +1,35 @@
 
+let buscarBtn = document.getElementById(`buscar-btn`)
+let buscarBarra = document.getElementById(`buscarBarra`)
 
-async function cargarPeliculas(buscarPelicula){
 
-    const apikey = `46c5cb96`;
-    const url = `http://www.omdbapi.com/?s=${buscarPelicula}&apikey=${apikey}`;
 
-    /* const respuesta = await fetch(`${url}`);
-    const datos = await respuesta.json(); */
+buscarBtn.addEventListener(`click`,(e)=>{
+    e.preventDefault()
+})
+
+
+
+window.addEventListener(`load`, () =>{
+
+    function buscarPelicula (){
+
+        const nombrePelicula = buscarBarra.value;
+        
+        if(nombrePelicula.length > 0){
+            fetch(`http://www.omdbapi.com/?s=${nombrePelicula}&apikey=46c5cb96`)
+            .then(response => response.json())
+            .then((data) => console.log(data));
+        }else{
+            alert(`Por favor ingrese el nombre de una pelicula`)
+        }
+    }
+
+    buscarBtn.addEventListener(`click`, ()=>{
+        buscarPelicula();
+    }) 
+
     
-    const respuesta = await fetch(` ${url}`);
-    const datos = await respuesta.json();
-    console.log(datos)
 
+})
 
-}
-
-cargarPeliculas(`spiderman`)
